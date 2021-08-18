@@ -2,34 +2,18 @@
 
 This repository contains the copy from https://github.com/joonson/syncnet_python with additional automatic pipeline (main.py) 
 
-Please cite the paper below if you make use of the software. 
-
-## Dependencies
-```
-pip install -r requirements.txt
-```
-
-In addition, `ffmpeg` is required.
+Run:
+git clone https://github.com/anton-selitskiy/SyncNetPredict.git
+pip install python_speech_features
+cd SyncNetPredict/
+!bash download_model.sh 
+python main.py
 
 
-## Demo
+It takes list of files (from train.csv) and iterates over it, taking *__0.png from crops.
+By defalt, it takes data from video 911f7bd7f62e18d6.mp4 and crops from 911f7bd7f62e18d6/ THIS SHOULD BE CHANGED
+The output (names of videos and mean distance) is saved in output/pywork/
 
-
-Full pipeline:
-```
-main.py - combination of run_pipeline.py and run_syncnet.py (I didn't use run_visualise)
-```
-
-Outputs:
-```
-$DATA_DIR/pycrop/$REFERENCE/*.avi - cropped face tracks
-$DATA_DIR/pywork/$REFERENCE/offsets.txt - audio-video offset values
-$DATA_DIR/pyavi/$REFERENCE/video_out.avi - output video (as shown below)
-```
-<p align="center">
-  <img src="img/ex1.jpg" width="45%"/>
-  <img src="img/ex2.jpg" width="45%"/>
-</p>
 
 ## Publications
  
