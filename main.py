@@ -41,7 +41,8 @@ class Config:
         self.batch_size = 20
         self.vshift = 15
 
-df = pd.read_csv('/home/cxu-serve/p1/lchen63/trustyAI/train.csv')
+#df = pd.read_csv('/home/cxu-serve/p1/lchen63/trustyAI/train.csv')
+df = pd.read_csv('output/train.csv')
 
 fake = df[df['label'] == 1]
 real = df[df['label'] == 0]
@@ -54,7 +55,7 @@ fconfs = []
 videos = fake_list[80:81]
 #videos =  ['a86fb8f61d4e54eb.mp4'] 
 for video in videos:
-    video_path = '/home/cxu-serve/p1/lchen63/trustyAI/videos/'+video 
+    video_path = video # '/home/cxu-serve/p1/lchen63/trustyAI/videos/'+video 
     print(video_path)
     opt = Config(video_path)
     setattr(opt, 'tmp_dir', os.path.join(opt.data_dir, 'pytmp'))
@@ -78,8 +79,8 @@ for video in videos:
     command = ("ffmpeg -y -i %s -ac 1 -vn -acodec pcm_s16le -ar 16000 %s" % (opt.videofile,os.path.join(opt.tmp_dir,'audiot.wav'))) 
     output = subprocess.call(command, shell=True, stdout=None)
 
-    path_cropss = '/home/cxu-serve/p1/lchen63/trustyAI/videos/crops/'
-    flist = glob.glob(os.path.join(path_cropss,opt.reference.split('.')[0],'*__0.png'))
+    path_cropss = '911f7bd7f62e18d6/' # '/home/cxu-serve/p1/lchen63/trustyAI/videos/crops/'
+    flist = glob.glob(os.path.join(path_cropss,'*__0.png')) # glob.glob(os.path.join(path_cropss,opt.reference.split('.')[0],'*__0.png'))
     for f_name in flist:
       im_cr = cv2.imread(f_name)
       im_cr_name = f_name.split('/')[-1]
@@ -113,12 +114,18 @@ for video in videos:
     #    dists.append(dist)
     fconfs.append(np.mean(fconf))
 
-    print(video_path, np.mean(fconf))
+    #print(video_path, np.mean(fconf))
 
     # ==================== PRINT RESULTS TO FILE ====================
 
     #with open(os.path.join(opt.work_dir, opt.reference, 'activesd.pckl'), 'wb') as fil:
     #    pickle.dump(dists, fil)
+with open(os.path.join(opt.work_dir, 'videos.pckl'), 'wb') as fil:
+    pickle.dump(videos, fil)
 
 with open(os.path.join(opt.work_dir, 'fconf.pckl'), 'wb') as fil:
     pickle.dump(fconfs, fil)  
+
+print('Statistics:')
+for i in range(len(videos)):
+  print(videos[i], fconfs[i])
