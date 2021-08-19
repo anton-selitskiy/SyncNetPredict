@@ -50,7 +50,8 @@ real = df[df['label'] == 0]
 fake_list = fake['filename'].to_list()
 real_list = real['filename'].to_list()
 
-fconfs = []
+if not os.path.exists(os.path.join('output','pywork')):
+    os.makedirs(os.path.join('output','pywork'))
 
 videos = fake_list[80:81]
 #videos =  ['a86fb8f61d4e54eb.mp4'] 
@@ -66,12 +67,8 @@ for video in videos:
     if os.path.exists(opt.tmp_dir):
         rmtree(opt.tmp_dir)
 
-    if os.path.exists(opt.work_dir):
-        rmtree(opt.work_dir)
-
     # ========== MAKE NEW DIRECTORIES ==========
 
-    os.makedirs(opt.work_dir)
     os.makedirs(opt.tmp_dir)
 
     # ========== Create wav and Crops ==========
@@ -112,20 +109,19 @@ for video in videos:
     #for idx in traks:
     offset, conf, dist, fconf = s.evaluate(opt) #, videofile=fname)
     #    dists.append(dist)
-    fconfs.append(np.mean(fconf))
+    #fconfs.append(np.mean(fconf))
 
     #print(video_path, np.mean(fconf))
 
     # ==================== PRINT RESULTS TO FILE ====================
 
-    #with open(os.path.join(opt.work_dir, opt.reference, 'activesd.pckl'), 'wb') as fil:
-    #    pickle.dump(dists, fil)
-with open(os.path.join(opt.work_dir, 'videos.pckl'), 'wb') as fil:
-    pickle.dump(videos, fil)
+    os.makedirs(os.path.join(opt.work_dir,opt.reference))
 
-with open(os.path.join(opt.work_dir, 'fconf.pckl'), 'wb') as fil:
-    pickle.dump(fconfs, fil)  
+    with open(os.path.join(opt.work_dir, opt.reference, 'activesd.pckl'), 'wb') as fil:
+        pickle.dump(dist, fil)
 
-print('Statistics:')
-for i in range(len(videos)):
-  print(videos[i], fconfs[i])
+    with open(os.path.join(opt.work_dir,opt.reference, 'fconf.pckl'), 'wb') as fil:
+        pickle.dump(fconf, fil)  
+
+    print(opt.reference, fconf)
+    
