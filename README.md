@@ -4,15 +4,15 @@ This repository contains the copy from https://github.com/joonson/syncnet_python
 
 Run:
 
-git clone https://github.com/anton-selitskiy/SyncNetPredict.git
+!git clone https://github.com/anton-selitskiy/SyncNetPredict.git
 
-pip install python_speech_features
+!pip install python_speech_features
 
-cd SyncNetPredict/
+%cd SyncNetPredict/
 
 !bash download_model.sh 
 
-python main.py
+python main.py (copy in a new cell if in notebook)
 
 
 
@@ -20,7 +20,7 @@ It takes list of files (from train.csv) and iterates over it, taking *__0.png fr
 
 By defalt, it takes data from video 911f7bd7f62e18d6.mp4 and crops from 911f7bd7f62e18d6/ THIS SHOULD BE CHANGED
 
-The output (names of videos and mean distance) is saved in output/pywork/
+The output (distance for each frame) is saved in output/pywork/911f7bd7f62e18d6/
 
 
 ## Publications
