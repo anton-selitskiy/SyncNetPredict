@@ -18,7 +18,7 @@ python main.py (copy in a new cell if in notebook)
 
 It takes list of files (from train.csv) and iterates over it, taking *__0.png from crops.
 
-By defalt, it takes data from video 911f7bd7f62e18d6.mp4 and crops from 911f7bd7f62e18d6/ THIS SHOULD BE CHANGED
+By defalt, it takes data from video 911f7bd7f62e18d6.mp4 and crops from 911f7bd7f62e18d6/ THIS MAY BE CHANGED
 
 The output (distance for each frame) is saved in output/pywork/911f7bd7f62e18d6/
 
