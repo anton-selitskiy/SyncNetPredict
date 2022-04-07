@@ -57,53 +57,72 @@
 
       <pre><code>This is a code block following a header.</code></pre>
       
-      <table>
-      <thead>
-        <tr>
-          <th align="center">DiffWave (C = 128,&nbsp;T = 200)</th>
-          <th align="center">&nbsp;&nbsp;WaveNet (C = 128)&nbsp;&nbsp;&nbsp;&nbsp;</th>
-          <th align="center">WaveFlow (C = 128)&nbsp;&nbsp;&nbsp;&nbsp;</th>
-          <th align="center">&nbsp;Ground-truth (recorded)&nbsp;&nbsp;&nbsp;&nbsp;</th>
-        </tr>
-      </thead>
+      <table align="center">
+    <thead>
+    <tr>
+      <th> </th>
+      <th>Reference Voice</th>
+      <th>LUT Sample</th>
+      <th>D-vector Sample</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Female Singer1</th>
+      <td><audio controls="" preload="auto">
+            <source src="wavs/inset_ref/101.wav"></audio></td>
+      <td><audio controls="" preload="auto">
+            <source src="wavs/inset_emb/lut_101.wav"></audio></td>
+      <td><audio controls="" preload="auto">
+            <source src="wavs/inset_dvec/dvec_101.wav"></audio></td>
+    </tr>
+    <tr>
+      <th>Female Singer2</th>
+      <td><audio controls="" preload="auto">
+            <source src="wavs/inset_ref/238.wav"></audio></td>
+      <td><audio controls="" preload="auto">
+            <source src="wavs/inset_emb/lut_238.wav"></audio></td>
+      <td><audio controls="" preload="auto">
+            <source src="wavs/inset_dvec/dvec_238.wav"></audio></td>
+    </tr>
+    <tr>
+      <th>Female Singer3</th>
+      <td><audio controls="" preload="auto">
+            <source src="wavs/inset_ref/1161.wav"></audio></td>
+      <td><audio controls="" preload="auto">
+            <source src="wavs/inset_emb/lut_1161.wav"></audio></td>
+      <td><audio controls="" preload="auto">
+            <source src="wavs/inset_dvec/dvec_1161.wav"></audio></td>
+    </tr>
+    <tr>
+      <th>Male Singer1</th>
+      <td><audio controls="" preload="auto">
+            <source src="wavs/inset_ref/658.wav"></audio></td>
+      <td><audio controls="" preload="auto">
+            <source src="wavs/inset_emb/lut_658.wav"></audio></td>
+      <td><audio controls="" preload="auto">
+            <source src="wavs/inset_dvec/dvec_658.wav"></audio></td>
+    </tr>
+    <tr>
+      <th>Male Singer2</th>
+      <td><audio controls="" preload="auto">
+            <source src="wavs/inset_ref/1189.wav"></audio></td>
+      <td><audio controls="" preload="auto">
+            <source src="wavs/inset_emb/lut_1189.wav"></audio></td>
+      <td><audio controls="" preload="auto">
+            <source src="wavs/inset_dvec/dvec_1189.wav"></audio></td>
+    </tr>
+    <tr>
+      <th>Male Singer3</th>
+      <td><audio controls="" preload="auto">
+            <source src="wavs/inset_ref/1512.wav"></audio></td>
+      <td><audio controls="" preload="auto">
+            <source src="wavs/inset_emb/lut_1512.wav"></audio></td>
+      <td><audio controls="" preload="auto">
+            <source src="wavs/inset_dvec/dvec_1512.wav"></audio></td>
+    </tr>
+  </tbody>
 
-       <tbody>
-        <tr>
-          <td><audio controls="" style="width: 250px; height: 50px"><source src="samples/ljspeech-diffwave_r128/wav_ch_128_T_200_iter_1000000_cond_1_0.wav" type="audio/wav"></audio></td>
-          <td><audio controls="" style="width: 250px; height: 50px"><source src="samples/ljspeech-wavenet/teacher8_l30_k2-LJ001-0001.wav" type="audio/wav"></audio></td>
-          <td><audio controls="" style="width: 250px; height: 50px"><source src="samples/ljspeech-waveflow_r128/LJ001-0001_synthesis.wav" type="audio/wav"></audio></td>
-          <td><audio controls="" style="width: 250px; height: 50px"><source src="samples/ljspeech-ground-truth/LJ001-0001.wav" type="audio/wav"></audio></td>
-        </tr>
-    
-        <tr>
-          <td><audio controls="" style="width: 250px; height: 50px"><source src="samples/ljspeech-diffwave_r128/wav_ch_128_T_200_iter_1000000_cond_2_0.wav" type="audio/wav"></audio></td>
-          <td><audio controls="" style="width: 250px; height: 50px"><source src="samples/ljspeech-wavenet/teacher8_l30_k2-LJ001-0002.wav" type="audio/wav"></audio></td>
-          <td><audio controls="" style="width: 250px; height: 50px"><source src="samples/ljspeech-waveflow_r128/LJ001-0002_synthesis.wav" type="audio/wav"></audio></td>
-          <td><audio controls="" style="width: 250px; height: 50px"><source src="samples/ljspeech-ground-truth/LJ001-0002.wav" type="audio/wav"></audio></td>
-        </tr>
-    
-        <tr>
-          <td><audio controls="" style="width: 250px; height: 50px"><source src="samples/ljspeech-diffwave_r128/wav_ch_128_T_200_iter_1000000_cond_3_0.wav" type="audio/wav"></audio></td>
-          <td><audio controls="" style="width: 250px; height: 50px"><source src="samples/ljspeech-wavenet/teacher8_l30_k2-LJ001-0003.wav" type="audio/wav"></audio></td>
-          <td><audio controls="" style="width: 250px; height: 50px"><source src="samples/ljspeech-waveflow_r128/LJ001-0003_synthesis.wav" type="audio/wav"></audio></td>
-          <td><audio controls="" style="width: 250px; height: 50px"><source src="samples/ljspeech-ground-truth/LJ001-0003.wav" type="audio/wav"></audio></td>
-        </tr>
-    
-        <tr>
-          <td><audio controls="" style="width: 250px; height: 50px"><source src="samples/ljspeech-diffwave_r128/wav_ch_128_T_200_iter_1000000_cond_4_0.wav" type="audio/wav"></audio></td>
-          <td><audio controls="" style="width: 250px; height: 50px"><source src="samples/ljspeech-wavenet/teacher8_l30_k2-LJ001-0004.wav" type="audio/wav"></audio></td>
-          <td><audio controls="" style="width: 250px; height: 50px"><source src="samples/ljspeech-waveflow_r128/LJ001-0004_synthesis.wav" type="audio/wav"></audio></td>
-          <td><audio controls="" style="width: 250px; height: 50px"><source src="samples/ljspeech-ground-truth/LJ001-0004.wav" type="audio/wav"></audio></td>
-        </tr>
-    
-        <tr>
-          <td><audio controls="" style="width: 250px; height: 50px"><source src="samples/ljspeech-diffwave_r128/wav_ch_128_T_200_iter_1000000_cond_5_0.wav" type="audio/wav"></audio></td>
-          <td><audio controls="" style="width: 250px; height: 50px"><source src="samples/ljspeech-wavenet/teacher8_l30_k2-LJ001-0005.wav" type="audio/wav"></audio></td>
-          <td><audio controls="" style="width: 250px; height: 50px"><source src="samples/ljspeech-waveflow_r128/LJ001-0005_synthesis.wav" type="audio/wav"></audio></td>
-          <td><audio controls="" style="width: 250px; height: 50px"><source src="samples/ljspeech-ground-truth/LJ001-0005.wav" type="audio/wav"></audio></td>
-        </tr>
-    
-      </tbody>
       </table>
     
       <h4>
